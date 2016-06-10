@@ -15,6 +15,7 @@ namespace GsmApp
         private Battery battery;
         private Display display;
         private static GSM iPhone4S = new GSM("IPhone", "Apple Inc");
+        private List<Call> callHistory = new List<Call>();
 
         #endregion
 
@@ -61,6 +62,11 @@ namespace GsmApp
             set { display = value; }
         }
 
+        public Call[] CallHistory
+        {
+            get { return callHistory.ToArray(); }
+        }
+
         public static GSM IPhone4S
         {
             get { return GSM.iPhone4S; }
@@ -81,6 +87,27 @@ namespace GsmApp
             this.owner = owner;
             this.battery = battery;
             this.display = display;
+        }
+
+        #endregion
+
+        #region Public Methods
+
+        public void AddCall(Call call)
+        {
+            this.callHistory.Add(call);
+        }
+
+        public void DeleteCall(Call call)
+        {
+            if (!callHistory.Contains(call))
+                throw new Exception("There is no such call in the call history");
+        }
+
+        public void ClearHistory()
+        {
+            if (this.callHistory != null)
+                this.callHistory.Clear();
         }
 
         #endregion

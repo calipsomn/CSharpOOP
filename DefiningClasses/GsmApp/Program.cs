@@ -8,6 +8,9 @@ namespace GsmApp
     {
         static void Main(string[] args)
         {
+            var gsmTest = new GSMTest();
+            gsmTest.DisplayInfo();
+            GSMTest.DisplayIPhone();
         }
     }
 }
