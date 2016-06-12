@@ -62,9 +62,9 @@ namespace GsmApp
             set { display = value; }
         }
 
-        public Call[] CallHistory
+        public List<Call> CallHistory
         {
-            get { return callHistory.ToArray(); }
+            get { return callHistory; }
         }
 
         public static GSM IPhone4S
@@ -102,12 +102,24 @@ namespace GsmApp
         {
             if (!callHistory.Contains(call))
                 throw new Exception("There is no such call in the call history");
+
+            this.callHistory.Remove(call);
         }
 
         public void ClearHistory()
         {
             if (this.callHistory != null)
                 this.callHistory.Clear();
+        }
+
+        public decimal TotalCallPrice(decimal pricePerMinute)
+        {
+            decimal totalPrice = 0.0m;
+            foreach (var call in callHistory)
+            {
+                totalPrice += call.DurationInSeconds * pricePerMinute / 60;
+            }
+            return totalPrice;
         }
 
         #endregion

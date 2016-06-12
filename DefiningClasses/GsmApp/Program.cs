@@ -11,6 +11,7 @@ namespace GsmApp
             var gsmTest = new GSMTest();
             gsmTest.DisplayInfo();
             GSMTest.DisplayIPhone();
+            GSMCallHistoryTest.TestCallHistory();
         }
     }
 }
