@@ -54,5 +54,27 @@ namespace DefiningClassesPart2
         }
 
         #endregion
+
+        #region Methods
+
+        public override string ToString()
+        {
+            return String.Format("Point: X={0} Y={1} Z={2}", this.x, this.y, this.z);
+        }
+
+        public override bool Equals(object obj)
+        {
+            Point3D secondPoint = obj as Point3D;
+            if (this.x != secondPoint.XCoordinate)
+                return false;
+            if (this.y != secondPoint.YCoordinate)
+                return false;
+            if (this.z != secondPoint.ZCoordinate)
+                return false;
+
+            return true;
+        }
+
+        #endregion
     }
 }
