@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DefiningClassesPart2
 {
-    public class GenericList<T>
+    public class GenericList<T> where T : IComparable<T>
     {
         private T[] elements;
         private int count = 0;
@@ -26,12 +26,16 @@ namespace DefiningClassesPart2
 
         public void Add(T element)
         {
-            if (count >= elements.Length)
+            if (elements.Length >= count)
             {
-                throw new IndexOutOfRangeException(String.Format(
-                    "The list capacity of {0} was exceeded.", elements.Length));
+                this.count *= 2;
+                var newElements = new T[count];
+                this.elements.CopyTo(newElements, 0);
+                newElements[count / 2] = element;
+                this.elements = newElements;
             }
-            this.elements[count] = element;
+            else
+                this.elements[count] = element;
             count++;
         }
 
@@ -104,6 +108,16 @@ namespace DefiningClassesPart2
                 sb.Append(String.Format("{0}\t", element));
             }
             return sb.ToString();
+        }
+
+        public T Max()
+        {
+            return this.elements.Max<T>();
+        }
+
+        public T Min()
+        {
+            return this.elements.Min<T>();
         }
 
         #endregion
