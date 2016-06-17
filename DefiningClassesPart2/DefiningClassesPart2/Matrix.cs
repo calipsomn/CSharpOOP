@@ -63,5 +63,67 @@ namespace DefiningClassesPart2
             }
             return result;
         }
+
+        public static Matrix<T> operator -(Matrix<T> matrix1, Matrix<T> matrix2)
+        {
+            var rowsCount = matrix1.Rows;
+            var columnsCount = matrix1.Columns;
+            if (rowsCount != matrix2.Rows || columnsCount != matrix2.Columns)
+            {
+                throw new ArithmeticException("The two matricies must have the same number of rows and columns");
+            }
+
+            Matrix<T> result = new Matrix<T>(rowsCount, columnsCount);
+            for (int rowInd = 0; rowInd < rowsCount; rowInd++)
+            {
+                for (int colInd = 0; colInd < columnsCount; colInd++)
+                {
+                    //result[rowInd, colInd] = matrix1[rowInd, colInd] - matrix2[rowInd, colInd];
+                }
+            }
+            return result;
+        }
+
+        public static Matrix<T> operator *(Matrix<T> matrix1, Matrix<T> matrix2)
+        {
+            var rowsCount = matrix1.Rows;
+            var columnsCount = matrix1.Columns;
+            if (rowsCount != matrix2.Columns || columnsCount != matrix2.Rows)
+            {
+                throw new ArithmeticException("The rows count of the first matrix should be equal to the columns of the second matrix and the columns count of the first matrix should be equal to the rows of the second matrix");
+            }
+
+            Matrix<T> result = new Matrix<T>(rowsCount, columnsCount);
+            for (int rowInd = 0; rowInd < rowsCount; rowInd++)
+            {
+                for (int colInd = 0; colInd < columnsCount; colInd++)
+                {
+                    //result[rowInd, colInd] = matrix1[rowInd, colInd] * matrix2[colInd, rowInd];
+                }
+            }
+            return result;
+        }
+
+        public static bool operator true(Matrix<T> matrix)
+        {
+            Type t = typeof(T);
+            foreach (var element in matrix.elements)
+            {
+                if (t == typeof(string) && (element as string) == null)
+                    return false;
+            }
+            return true;
+        }
+
+        public static bool operator false(Matrix<T> matrix)
+        {
+            Type t = typeof(T);
+            foreach (var element in matrix.elements)
+            {
+                if (t == typeof(string) && (element as string) != null)
+                    return false;
+            }
+            return true;
+        }
     }
 }
