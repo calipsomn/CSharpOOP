@@ -106,5 +106,13 @@ namespace ExtensionMethodsDelegatesLambdaLINQ
                    where number % 7 == 0 && number % 3 == 0
                    select number;
         }
+
+        public static IEnumerable<Student> GetStudentsInGroup2(this Student[] students)
+        {
+            return from student in students
+                   where student.GroupNumber == 2
+                   orderby student.FirstName
+                   select student;
+        }
     }
 }
