@@ -1,13 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace ExtensionMethodsDelegatesLambdaLINQ
 {
-    class Program
+    public delegate void TickDelegate();
+
+    public class CustomTimer
     {
-        static void Main(string[] args)
+        static void Tick()
         {
+
         }
     }
 }
