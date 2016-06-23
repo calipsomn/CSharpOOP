@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace DefiningClassesPart2
 {
-    public class Point3D
+    [Version(1, 2)]
+    public class Point3D : System.Attribute
     {
         #region Private Fields
 

@@ -10,6 +10,12 @@ namespace DefiningClassesPart2
     {
         static void Main(string[] args)
         {
+            System.Reflection.MemberInfo point = typeof(Point3D);
+            Console.WriteLine("Attributes for : " + point.Name);
+            foreach (object attribute in point.GetCustomAttributes(true))
+            {
+                Console.WriteLine(attribute);
+            }
         }
     }
 }
