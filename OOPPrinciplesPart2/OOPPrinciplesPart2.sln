@@ -13,6 +13,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{0A1EFB
 		.nuget\packages.config = .nuget\packages.config
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankAccounts", "BankAccounts\BankAccounts.csproj", "{3D8CD2E0-201A-4349-A299-30CAE37B8DA7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,6 +25,10 @@ Global
 		{0FBE7489-C4E2-43AB-ACAD-C3E201F8CC3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0FBE7489-C4E2-43AB-ACAD-C3E201F8CC3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0FBE7489-C4E2-43AB-ACAD-C3E201F8CC3F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D8CD2E0-201A-4349-A299-30CAE37B8DA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D8CD2E0-201A-4349-A299-30CAE37B8DA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D8CD2E0-201A-4349-A299-30CAE37B8DA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D8CD2E0-201A-4349-A299-30CAE37B8DA7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
