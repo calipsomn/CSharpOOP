@@ -6,19 +6,23 @@ namespace BankAccounts
 {
     public class Individual:Customer
     {
-        private uint egn;
+        private ulong egn;
 
-        public uint Egn
+        public ulong Egn
         {
             get { return egn; }
             set
             {
-                if (egn.ToString().Length != 10)
+                if (value.ToString().Length != 10)
                     throw new ArgumentOutOfRangeException("The individual egn should be 10 symbols");
 
                 egn = value;
             }
         }
-        public Individual(string name) : base(name) { }
+        public Individual(ulong egn, string name)
+            : base(name) 
+        {
+            this.Egn = egn;
+        }
     }
 }

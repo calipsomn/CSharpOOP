@@ -36,5 +36,13 @@ namespace BankAccounts
         }
 
         public abstract double CalculateInterest(int months);
+
+        public void Deposit(double money)
+        {
+            if (money <= 0.0)
+                throw new ArgumentOutOfRangeException("The deposited money should be greater than zero");
+
+            this.Balance += money;
+        }
     }
 }
